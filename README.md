@@ -303,4 +303,21 @@ npm i eslint-plugin-import-helpers --save-dev
 
 * Note que a ordenação no arquivo `.eslintrc.json` deve estar condizente com as props baseURL e paths 
 de `tsconfig.json` e que as estruturas e quantidades de diretórios podem variar de projeto para projeto.
-Certifique com seu líder qual será a estrutura de pastas do projeto para ser configurada nessa última etapa
+Certifique com seu líder qual será a estrutura de pastas do projeto para ser configurada nessa etapa.
+
+- Por último criar mais dois arquivos na raiz do projeto `.eslintignore` e `.prettierignore`, para que 
+as regras de lint não sejam aplicadas em arquivos desnecessários. Nesses dois aquivos inserir a mesma
+config:
+
+```
+# Ignore artifacts:
+.next
+.vscode
+node_modules
+public
+build
+dist
+coverage
+**/*.js
+assets
+```
