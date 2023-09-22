@@ -11,5 +11,5 @@ export const Main = styled.main`
 export const Description = styled.span`
   font-weight: 400;
   font-size: 16px;
-  color: red;
+  color: ${({ theme }) => theme.colors.YELLOW_500};
 `;
