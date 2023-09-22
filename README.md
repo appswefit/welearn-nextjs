@@ -273,7 +273,7 @@ npm i eslint-plugin-import-helpers --save-dev
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [ // ordem dos imports 
+        "groups": [ // ordem dos imports
           ["/^react$/", "/^next/", "/^@next/"], // 1º: imports do react e next
           ["/^@react/", "/^@azul/", "module"], // 2º: imports @react, lib-azul e outras libs node_modules
           ["/^@data/", "/^@domain/", "/^@infra/", "/^@main/", "/^@i18n/"], // 3º: imports fora de presentation
@@ -301,11 +301,28 @@ npm i eslint-plugin-import-helpers --save-dev
 }
 ```
 
-* Note que a ordenação no arquivo `.eslintrc.json` deve estar condizente com as props baseURL e paths 
+* Note que a ordenação no arquivo `.eslintrc.json` deve estar condizente com as props baseURL e paths
 de `tsconfig.json` e que as estruturas e quantidades de diretórios podem variar de projeto para projeto.
 Certifique com seu líder qual será a estrutura de pastas do projeto para ser configurada nessa etapa.
 
-- Por último criar mais dois arquivos na raiz do projeto `.eslintignore` e `.prettierignore`, para que 
+- Criar na raiz do projeto um arquivo com o nome `.editorconfig` com a seguinte configuração:
+
+```
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = false
+```
+
+- Por último criar mais dois arquivos na raiz do projeto `.eslintignore` e `.prettierignore`, para que
 as regras de lint não sejam aplicadas em arquivos desnecessários. Nesses dois aquivos inserir a mesma
 config:
 
