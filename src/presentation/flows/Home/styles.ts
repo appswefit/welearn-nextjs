@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
+export const Title = styled.h1`
+  margin: 0;
+  padding: 0;
+  color: ${({ theme }) => theme.colors.YELLOW_500};
 `;
 
 export const Description = styled.span`

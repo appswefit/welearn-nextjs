@@ -1,9 +1,10 @@
-import { Main, Description } from './styles';
+import { Description, Title } from './styles';
 
 export function HomeLayout() {
   return (
-    <Main>
+    <>
+      <Title>Blog Ygor Salles</Title>
       <Description>My App Next13</Description>
-    </Main>
+    </>
   );
 }

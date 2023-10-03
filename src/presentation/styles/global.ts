@@ -28,9 +28,9 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     html {
       color-scheme: dark;
     }
-  }
+  } */
 `;
