@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 import { AppProvider } from '@providers/index';
 
-import StyledComponentsRegistry from '../registry';
+import StyledComponentsRegistry from './registry';
 
 interface ClientComponentsProps {
   children: ReactNode;
