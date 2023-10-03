@@ -1,6 +1,9 @@
+import { getNameBlog } from 'src/mock';
+
 import { HomeLayout } from './layout';
 
-export function Home() {
+export async function Home() {
   console.log('Page Home');
-  return <HomeLayout />;
+  const { name } = await getNameBlog();
+  return <HomeLayout nameBlog={name} />;
 }

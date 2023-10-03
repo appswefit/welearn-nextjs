@@ -1,9 +1,13 @@
 import { Description, Title } from './styles';
 
-export function HomeLayout() {
+interface HomeLayoutProps {
+  nameBlog: string;
+}
+
+export function HomeLayout({ nameBlog }: HomeLayoutProps) {
   return (
     <>
-      <Title>Blog Ygor Salles</Title>
+      <Title>Blog {nameBlog}</Title>
       <Description>My App Next13</Description>
     </>
   );
