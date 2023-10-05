@@ -1,4 +1,4 @@
-import { Theme } from '@styles/constants';
+import { Theme } from '@components/client/styles/constants';
 import 'styled-components';
 
 declare module 'styled-components' {
