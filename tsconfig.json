@@ -28,8 +28,8 @@
       "@utils/*": ["src/presentation/utils/*"],
       "@assets/*": ["src/presentation/assets/*"],
       "@constants/*": ["src/presentation/constants/*"],
-      "@providers/*": ["src/presentation/components/client/providers/*"],
-      "@styles/*": ["src/presentation/components/client/styles/*"],
+      "@providers/*": ["src/presentation/providers/*"],
+      "@styles/*": ["src/presentation/styles/*"],
       "@flows/*": ["src/presentation/flows/*"],
       //
       "@data/*": ["src/data/*"],

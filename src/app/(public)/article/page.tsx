@@ -1,4 +1,4 @@
-import { Article } from 'src/presentation/pages/Article';
+import { Article } from 'src/presentation/pages';
 
 const ArticleRoute = () => {
   return <Article />;

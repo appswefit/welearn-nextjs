@@ -1,4 +1,4 @@
-import { ClientButton } from '@components/client';
+import { ClientButton } from '@components/index';
 
 export function Article() {
   console.log('Page Article');

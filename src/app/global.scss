@@ -50,6 +50,9 @@ textarea {
 
 button {
   cursor: pointer;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 
 a {

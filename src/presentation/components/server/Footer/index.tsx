@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <img src={images.logoWefit} alt="logo wefit" />
+      <img className={styles.img} src={images.logoWefit} alt="logo wefit" />
       <div>
         <span>Endereço</span>
         <span>

@@ -1,17 +1,18 @@
-import { ClientButton } from '@components/client';
-import { ClientCard } from '@components/client/Card';
+import { ClientButton, ClientCard } from '@components/index';
 
 export function Community() {
   console.log('Page Community');
 
   return (
-    <main>
+    <div>
       <span>Comunidade</span>
       <ClientButton>
         Botão
         <ClientCard />
       </ClientButton>
       <ClientCard />
-    </main>
+      <ClientCard />
+      <ClientCard />
+    </div>
   );
 }
