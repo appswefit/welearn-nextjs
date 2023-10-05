@@ -1,18 +1,11 @@
-'use client';
-
 import { ReactNode } from 'react';
 
-import { ExternalLayout } from '@components/index';
-import { AppProvider } from '@providers/index';
+import { LayoutPublic } from '@components/server/LayoutPublic';
 
 interface PublicLayoutProps {
   children: ReactNode;
 }
 
 export default function PublicLayout({ children }: PublicLayoutProps) {
-  return (
-    <AppProvider>
-      <ExternalLayout>{children}</ExternalLayout>
-    </AppProvider>
-  );
+  return <LayoutPublic>{children}</LayoutPublic>;
 }
