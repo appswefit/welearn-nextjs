@@ -9,7 +9,7 @@ export const colors = {
   DARK_300: '#121214',
 
   CYAN_500: '#61dafb',
-  YELLOW_500: '#eba417',
+  YELLOW_500: '#f5c400',
 };
 
 export enum BreakpointsEnum {

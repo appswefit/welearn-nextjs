@@ -1,5 +1,5 @@
-export * from './client/Button';
-export * from './client/Card';
+export * from './client/ClientButton';
+export * from './client/ClientTextInput';
 
 export * from './server/Footer';
 export * from './server/Header';

@@ -1,0 +1,21 @@
+.article {
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 16px;
+
+  text-align: justify;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--yellow-500);
+
+  margin-bottom: 16px;
+}
+
+.paragraph {
+  font-weight: 12px;
+  color: var(--white);
+  margin-bottom: 22px;
+}
