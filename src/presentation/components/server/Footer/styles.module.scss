@@ -3,10 +3,13 @@
   justify-content: space-evenly;
   align-items: center;
   padding: 16px 0;
-  border-top: 1px solid var(--white);
 }
 
 .img {
   width: 220px;
   height: 80px;
+}
+
+.address {
+  color: var(--gray-300);
 }
