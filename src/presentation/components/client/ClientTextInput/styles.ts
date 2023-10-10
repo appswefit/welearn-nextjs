@@ -46,7 +46,9 @@ export const TextArea = styled.textarea`
   outline: none;
 `;
 
-export const Clean = styled.span<CleanProps>`
+export const Clean = styled.span.withConfig({
+  shouldForwardProp: prop => !['isTextarea'].includes(prop),
+})<CleanProps>`
   font-size: 12px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.DARK_200};
