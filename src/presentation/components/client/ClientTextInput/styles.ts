@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface CleanProps {
   isTextarea?: boolean;
@@ -17,33 +17,42 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-
-  width: 100%;
-  position: relative;
+  ${({ theme }) =>
+    theme &&
+    css`
+      display: flex;
+      flex: ${theme.elevation[1]};
+      flex-direction: row;
+      align-items: center;
+      gap: ${theme.spacing['1x']};
+      background-color: ${theme.colors.NEUTRAL_50};
+      border-radius: 4px;
+    `}
 `;
 
 export const Input = styled.input`
   height: 26px;
-  flex: 1;
-  border-radius: 4px;
-  text-indent: 6px;
-  padding: 8px 0;
-
+  width: 100%;
+  text-indent: 8px;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.NEUTRAL_50};
   outline: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 `;
 
 export const TextArea = styled.textarea`
-  min-height: 250px;
+  min-height: 25vh;
   width: 100%;
   border-radius: 4px;
-  text-indent: 6px;
+  text-indent: 8px;
   padding: 8px 0;
-
+  background-color: ${({ theme }) => theme.colors.NEUTRAL_50};
   outline: none;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  resize: vertical;
 `;
 
 export const Clean = styled.span.withConfig({
@@ -52,12 +61,8 @@ export const Clean = styled.span.withConfig({
   font-size: 12px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.DARK_200};
-  position: absolute;
-  top: ${({ isTextarea }) => (isTextarea ? 6 : 50)}%;
-  right: 12px;
-  transform: translateY(-50%);
+  margin-right: ${({ theme }) => theme.spacing['2x']};
   cursor: pointer;
-
   padding: 1px 4px;
   border: 1px solid ${({ theme }) => theme.colors.DARK_200};
   border-radius: 100%;
