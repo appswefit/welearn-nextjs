@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import { useMock } from 'src/mock';
-
 import { Table } from '@components/server/Table';
 
 import { ICommunity, TypeLoadParametrization } from './community.types';
@@ -11,7 +9,6 @@ import styles from './styles.module.scss';
 
 export function Community() {
   console.log('Page Community');
-  const { getCommunityMock } = useMock();
 
   const [loadingState, setLoadingState] = useState<TypeLoadParametrization>('stand_by');
   const [communityListState, setCommunityListState] = useState<Array<ICommunity>>([]);
@@ -20,8 +17,9 @@ export function Community() {
     setLoadingState('pending');
 
     try {
-      const response = await getCommunityMock();
-      setCommunityListState(response);
+      const response = await fetch('http://localhost:4000/communities');
+      const array: Array<ICommunity> = await response.json();
+      setCommunityListState(array);
     } catch (error) {
       console.log('error', error);
     } finally {

@@ -1,6 +1,7 @@
 import { ICommunity } from 'src/presentation/pages/Community/community.types';
 
-import { SkeletonLoading } from '../SkeletonLoading';
+import { ClientSkeleton } from '@components/client/ClientSkeleton';
+
 import styles from './styles.module.scss';
 
 interface TableProps {
@@ -22,7 +23,7 @@ export function Table({ array, isLoading }: TableProps) {
       {isLoading ? (
         <tbody>
           <tr>
-            <SkeletonLoading colSpan={3} />
+            <ClientSkeleton colSpan={3} />
           </tr>
         </tbody>
       ) : (

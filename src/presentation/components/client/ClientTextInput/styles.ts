@@ -45,8 +45,7 @@ export const TextArea = styled.textarea`
   min-height: 25vh;
   width: 100%;
   border-radius: 4px;
-  text-indent: 8px;
-  padding: 8px 0;
+  padding: 8px 8px;
   background-color: ${({ theme }) => theme.colors.NEUTRAL_50};
   outline: none;
   border: none;

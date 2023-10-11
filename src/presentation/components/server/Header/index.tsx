@@ -1,24 +1,32 @@
 import { images } from '@assets/index';
 
-import { ActiveLink } from '../ActiveLink';
+import { ClientActiveLink } from '../../client/ClientActiveLink';
 import styles from './styles.module.scss';
 
-export function Header() {
+interface IGetNameBlog {
+  id: number;
+  name: string;
+}
+
+export async function Header() {
+  const response = await fetch('http://localhost:4000/nameBlog');
+  const { name }: IGetNameBlog = await response.json();
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <ActiveLink activeClassName={styles.active} href="/community">
+        <ClientActiveLink activeClassName={styles.active} href="/community">
           <span>Comunidade</span>
-        </ActiveLink>
-        <ActiveLink activeClassName={styles.active} href="/article">
-          <span>Artigo</span>
-        </ActiveLink>
-        <ActiveLink activeClassName={styles.active} href="/register">
+        </ClientActiveLink>
+        <ClientActiveLink activeClassName={styles.active} href="/article">
+          <span>Artigos</span>
+        </ClientActiveLink>
+        <ClientActiveLink activeClassName={styles.active} href="/register">
           <span>Cadastro de artigo</span>
-        </ActiveLink>
+        </ClientActiveLink>
       </nav>
       <div className={styles.row}>
-        <h2 className={styles.title}>Blog Wefit</h2>
+        <h2 className={styles.title}>{name}</h2>
         <img src={images.logoIcon} alt="logo wefit" />
       </div>
     </header>
