@@ -1,0 +1,19 @@
+.skeleton {
+  background-color: var(--gray-800);
+  height: 300px;
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  animation: loading 0.8s infinite alternate;
+
+  border: none !important;
+
+  @keyframes loading {
+    0% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

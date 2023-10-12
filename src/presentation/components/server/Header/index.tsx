@@ -19,7 +19,7 @@ export async function Header() {
           <span>Comunidade</span>
         </ClientActiveLink>
         <ClientActiveLink activeClassName={styles.active} href="/article">
-          <span>Artigos</span>
+          <span>Artigo</span>
         </ClientActiveLink>
         <ClientActiveLink activeClassName={styles.active} href="/register">
           <span>Cadastro de artigo</span>

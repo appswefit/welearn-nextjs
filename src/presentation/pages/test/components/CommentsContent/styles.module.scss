@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--white);
+}
