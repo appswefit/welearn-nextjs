@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import { Skeleton } from '@components/index';
-
 import { IGetComment, TypeLoadClientComments } from './clientComments.types';
 import { Container, Row, Text } from './styles';
 
@@ -12,6 +10,8 @@ export function ClientComments() {
 
   const [loadingState, setLoadingState] = useState<TypeLoadClientComments>('stand_by');
   const [commentsState, setCommentsState] = useState<Array<IGetComment>>([]);
+
+  const isLoading = loadingState === 'pending';
 
   const getCommentsData = async () => {
     setLoadingState('pending');
@@ -31,11 +31,9 @@ export function ClientComments() {
     getCommentsData();
   }, []);
 
-  console.log('loadingState', loadingState);
-
   return (
     <Container>
-      {loadingState ? (
+      {isLoading ? (
         <h1>Carregando comentarios...</h1>
       ) : (
         commentsState.map(({ id, comment, evaluation }) => (

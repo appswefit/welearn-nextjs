@@ -1,17 +1,12 @@
 import styled, { css } from 'styled-components';
 
-interface SkeletonProps {
-  widthPct?: number;
-  heightPx?: number;
-}
-
-export const Td = styled.td<SkeletonProps>`
-  ${({ theme, widthPct, heightPx }) =>
+export const Td = styled.td`
+  ${({ theme }) =>
     theme &&
     css`
       background-color: ${theme.colors.DARK_100};
-      height: ${heightPx ?? 300}px;
-      width: ${widthPct ?? 100}%;
+      height: 300px;
+      width: 100%;
       border-radius: 2px;
       animation: loading 0.8s infinite alternate;
 
@@ -28,13 +23,13 @@ export const Td = styled.td<SkeletonProps>`
     `}
 `;
 
-export const Span = styled.span<SkeletonProps>`
-  ${({ theme, heightPx, widthPct }) =>
+export const Span = styled.span`
+  ${({ theme }) =>
     theme &&
     css`
       display: block;
-      height: ${heightPx ?? 300}px;
-      width: ${widthPct ?? 100}%;
+      height: 300px;
+      width: 100%;
       background-color: ${theme.colors.DARK_100};
       border-radius: 4px;
       animation: loading 0.8s infinite alternate;
