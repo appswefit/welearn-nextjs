@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Input = styled.input`
-  height: 26px;
+  height: 28px;
   width: 100%;
   text-indent: 8px;
   border: none;
@@ -42,7 +42,6 @@ export const Input = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-  min-height: 25vh;
   width: 100%;
   border-radius: 4px;
   padding: 8px 8px;

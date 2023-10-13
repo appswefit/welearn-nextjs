@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
+import { ClientButton, ClientTextInput } from '@components/index';
+
+import { ClientLoadingComments } from '../ClientLoadingComments';
 import { IGetComment, TypeLoadClientComments } from './clientComments.types';
-import { Container, Row, Text } from './styles';
+import { Container, Row, Text, Wrapper } from './styles';
 
 export function ClientComments() {
   console.log('Comentarios');
@@ -34,21 +37,21 @@ export function ClientComments() {
   return (
     <Container>
       {isLoading ? (
-        <h1>Carregando comentarios...</h1>
+        <ClientLoadingComments />
       ) : (
-        commentsState.map(({ id, comment, evaluation }) => (
-          <Row key={id}>
-            <Text>{comment}</Text>
-            <Text>{evaluation}</Text>
-          </Row>
-        ))
+        <>
+          {commentsState.map(({ id, comment, evaluation }) => (
+            <Row key={id}>
+              <Text>{comment}</Text>
+              {evaluation && <Text>{evaluation}</Text>}
+            </Row>
+          ))}
+          <Wrapper>
+            <ClientTextInput label="Comentário" isTextArea height={46} />
+            <ClientButton>Enviar</ClientButton>
+          </Wrapper>
+        </>
       )}
-      {/* {commentsState.map(({ id, comment, evaluation }) => (
-        <Row key={id}>
-          <Text>{comment}</Text>
-          <Text>{evaluation}</Text>
-        </Row>
-      ))} */}
     </Container>
   );
 }

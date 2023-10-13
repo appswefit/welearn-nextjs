@@ -1,20 +1,22 @@
+'use client';
+
 import { ClientButton, ClientTextInput } from '@components/index';
 
-import styles from './styles.module.scss';
+import { Container, Wrapper, Footer } from './styles';
 
 export function Register() {
   console.log('Page Register');
 
   return (
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
+    <Container>
+      <Wrapper>
         <ClientTextInput label="Título" />
-        <ClientTextInput isTextArea label="Texto" />
-      </div>
+        <ClientTextInput isTextArea label="Texto" className="textarea" />
+      </Wrapper>
 
-      <footer className={styles.footer}>
+      <Footer>
         <ClientButton>Cadastrar</ClientButton>
-      </footer>
-    </div>
+      </Footer>
+    </Container>
   );
 }

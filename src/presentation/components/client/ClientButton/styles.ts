@@ -6,6 +6,7 @@ export const Button = styled.button`
     css`
       width: 120px;
       height: 46px;
+      border: none;
       border-radius: 8px;
       background-color: ${theme.colors.YELLOW_500};
       color: ${theme.colors.DARK_300};
