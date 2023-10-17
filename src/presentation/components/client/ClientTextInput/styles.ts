@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components';
 
-interface CleanProps {
-  isTextarea?: boolean;
-}
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,9 +49,7 @@ export const TextArea = styled.textarea`
   resize: vertical;
 `;
 
-export const Clean = styled.span.withConfig({
-  shouldForwardProp: prop => !['isTextarea'].includes(prop),
-})<CleanProps>`
+export const Clean = styled.span`
   font-size: 12px;
   font-weight: 600;
   color: ${({ theme }) => theme.colors.DARK_200};

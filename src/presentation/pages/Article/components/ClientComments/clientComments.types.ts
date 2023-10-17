@@ -11,3 +11,7 @@ export interface IGetComment {
   comment: string;
   evaluation: number;
 }
+
+export interface IFormComments {
+  comment: HTMLTextAreaElement | null;
+}

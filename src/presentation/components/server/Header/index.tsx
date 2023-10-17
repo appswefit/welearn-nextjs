@@ -9,7 +9,9 @@ interface IGetNameBlog {
 }
 
 export async function Header() {
-  const response = await fetch('http://localhost:4000/nameBlog');
+  const response = await fetch('http://localhost:4000/nameBlog', {
+    cache: 'no-store', // para cada user diferente ele faz uma nova requisição
+  });
   const { name }: IGetNameBlog = await response.json();
 
   return (
