@@ -1,4 +1,4 @@
-import { Community } from 'src/presentation/pages/Community';
+import { Community } from 'src/presentation/pages';
 
 const CommunityRoute = () => {
   return <Community />;

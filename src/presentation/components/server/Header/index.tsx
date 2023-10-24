@@ -23,8 +23,8 @@ export async function Header() {
         <ClientActiveLink activeClassName={styles.active} href="/article">
           <span>Artigo</span>
         </ClientActiveLink>
-        <ClientActiveLink activeClassName={styles.active} href="/register">
-          <span>Cadastro de artigo</span>
+        <ClientActiveLink activeClassName={styles.active} href="/edit">
+          <span>Editar artigo</span>
         </ClientActiveLink>
       </nav>
       <div className={styles.row}>

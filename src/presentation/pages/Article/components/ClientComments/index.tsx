@@ -1,24 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { useEffect, useRef, useState, MouseEvent } from 'react';
-
-import { TypeLoading } from 'src/presentation/types';
+import { useEffect, useRef } from 'react';
 
 import { ClientButton, ClientTextInput } from '@components/index';
+import { IFormComments, useCommentsArticle } from '@hooks/network/useCommentsArticle';
 
 import { ClientLoadingComments } from '../ClientLoadingComments';
-import { IFormComments, IGetComment } from './clientComments.types';
 import { Container, Row, Text, Wrapper } from './styles';
 
 export function ClientComments() {
   console.log('Comentarios');
 
-  const [loadingState, setLoadingState] = useState<TypeLoading>('stand_by');
-  const [commentsState, setCommentsState] = useState<Array<IGetComment>>([]);
+  const { commentsState, getCommentsData, isLoading, postComment } = useCommentsArticle();
 
   const formRef = useRef<IFormComments>({ comment: null });
-
-  const isLoading = loadingState === 'pending';
 
   const handleClearInput = (name: keyof IFormComments) => {
     return () => {
@@ -29,45 +25,6 @@ export function ClientComments() {
         currentField.value = '';
       }
     };
-  };
-
-  const getCommentsData = async () => {
-    setLoadingState('pending');
-
-    try {
-      const response = await fetch('http://localhost:4000/comments');
-      const array: Array<IGetComment> = await response.json();
-      setCommentsState(array);
-    } catch (error) {
-      console.log('error', error);
-    } finally {
-      setLoadingState('done');
-    }
-  };
-
-  const postComment = async (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    event.preventDefault();
-    setLoadingState('pending');
-
-    try {
-      const comment = formRef.current.comment?.value;
-
-      if (comment) {
-        const body = JSON.stringify({ comment });
-
-        await fetch('http://localhost:4000/comments', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        });
-
-        await getCommentsData();
-      }
-    } catch (error) {
-      console.log('error', error);
-    } finally {
-      setLoadingState('done');
-    }
   };
 
   useEffect(() => {
@@ -95,7 +52,7 @@ export function ClientComments() {
               ref={(ref: HTMLTextAreaElement | null) => (formRef.current.comment = ref)}
               onClearInput={handleClearInput('comment')}
             />
-            <ClientButton onClick={e => postComment(e)}>Enviar</ClientButton>
+            <ClientButton onClick={e => postComment(e, formRef)}>Enviar</ClientButton>
           </Wrapper>
         </>
       )}

@@ -4,7 +4,7 @@ export interface IGetArticle {
   article: string;
 }
 
-export interface IFormRegister {
+export interface IFormEdit {
   title: string;
   article: string;
 }

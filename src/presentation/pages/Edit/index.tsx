@@ -11,15 +11,15 @@ import {
   InstersectionInput,
 } from '@components/index';
 
-import { defaultValue } from './register.data';
-import { IFormRegister, IGetArticle } from './register.types';
+import { defaultValue } from './edit.data';
+import { IFormEdit, IGetArticle } from './edit.types';
 import { Container, Footer, Wrapper } from './styles';
 
-export function Register() {
-  console.log('Page Register');
+export function Edit() {
+  console.log('Page Edit');
 
   const [loadingState, setLoadingState] = useState<TypeLoading>('stand_by');
-  const [formState, setFormState] = useState<IFormRegister>(defaultValue);
+  const [formState, setFormState] = useState<IFormEdit>(defaultValue);
 
   const isLoading = loadingState === 'pending';
 
@@ -30,7 +30,7 @@ export function Register() {
     setFormState(prev => ({ ...prev, [name]: value }));
   };
 
-  const clearValue = (nameField: keyof IFormRegister) => {
+  const clearValue = (nameField: keyof IFormEdit) => {
     return () => {
       setFormState(prev => ({ ...prev, [nameField]: '' }));
     };
