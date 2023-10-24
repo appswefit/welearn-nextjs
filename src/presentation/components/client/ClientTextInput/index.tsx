@@ -4,7 +4,7 @@ import { InputHTMLAttributes, forwardRef, useRef } from 'react';
 
 import { Container, Label, Input, TextArea, Wrapper, Clean } from './styles';
 
-type InstersectionInput = HTMLInputElement & HTMLTextAreaElement;
+export type InstersectionInput = HTMLInputElement & HTMLTextAreaElement;
 
 interface TextInputProps extends InputHTMLAttributes<InstersectionInput> {
   label: string;
@@ -18,8 +18,8 @@ export const ClientTextInput = forwardRef<InstersectionInput, TextInputProps>((p
   const inputRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const showClearInput = (ref && onClearInput) || inputRef.current !== null;
-  const showClearTextarea = (ref && onClearInput) || textareaRef.current !== null;
+  const showClearInput = onClearInput || inputRef.current !== null;
+  const showClearTextarea = onClearInput || textareaRef.current !== null;
 
   const clearValueInput = () => {
     if (ref && onClearInput) {

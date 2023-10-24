@@ -14,7 +14,12 @@ export const Button = styled.button`
       font-weight: 700;
 
       &:hover {
-        background-color: #f5c750;
+        background-color: ${theme.colors.YELLOW_400};
+      }
+
+      &:disabled {
+        background-color: ${theme.colors.NEUTRAL_200};
+        color: ${theme.colors.DARK_100};
       }
     `}
 `;

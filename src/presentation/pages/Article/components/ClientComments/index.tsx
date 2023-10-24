@@ -2,16 +2,18 @@
 
 import { useEffect, useRef, useState, MouseEvent } from 'react';
 
+import { TypeLoading } from 'src/presentation/types';
+
 import { ClientButton, ClientTextInput } from '@components/index';
 
 import { ClientLoadingComments } from '../ClientLoadingComments';
-import { IFormComments, IGetComment, TypeLoadClientComments } from './clientComments.types';
+import { IFormComments, IGetComment } from './clientComments.types';
 import { Container, Row, Text, Wrapper } from './styles';
 
 export function ClientComments() {
   console.log('Comentarios');
 
-  const [loadingState, setLoadingState] = useState<TypeLoadClientComments>('stand_by');
+  const [loadingState, setLoadingState] = useState<TypeLoading>('stand_by');
   const [commentsState, setCommentsState] = useState<Array<IGetComment>>([]);
 
   const formRef = useRef<IFormComments>({ comment: null });
@@ -33,7 +35,7 @@ export function ClientComments() {
     setLoadingState('pending');
 
     try {
-      const response = await fetch('http://localhost:4000/comments', { cache: 'no-store' });
+      const response = await fetch('http://localhost:4000/comments');
       const array: Array<IGetComment> = await response.json();
       setCommentsState(array);
     } catch (error) {
