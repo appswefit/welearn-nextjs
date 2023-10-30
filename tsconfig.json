@@ -20,24 +20,16 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@types/*": ["src/presentation/@types/*"],
+      "@assets/*": ["src/presentation/assets/*"],
       "@components/*": ["src/presentation/components/*"],
       "@context/*": ["src/presentation/context/*"],
       "@hooks/*": ["src/presentation/hooks/*"],
-      "@router/*": ["src/presentation/router/*"],
-      "@utils/*": ["src/presentation/utils/*"],
-      "@assets/*": ["src/presentation/assets/*"],
-      "@constants/*": ["src/presentation/constants/*"],
+      "@pages/*": ["src/presentation/pages/*"],
       "@providers/*": ["src/presentation/providers/*"],
       "@styles/*": ["src/presentation/styles/*"],
-      "@flows/*": ["src/presentation/flows/*"],
-      //
-      "@data/*": ["src/data/*"],
-      "@domain/*": ["src/domain/*"],
-      "@i18n/*": ["src/i18n/*"],
-      "@infra/*": ["src/infra/*"],
-      "@main/*": ["src/main/*"]
-    },
+      "@types/*": ["src/presentation/@types/*"],
+      "@utils/*": ["src/presentation/utils/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

@@ -1,4 +1,4 @@
-import { Edit } from 'src/presentation/pages';
+import { Edit } from '@pages/Edit';
 
 const EditRoute = () => {
   return <Edit />;

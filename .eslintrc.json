@@ -45,19 +45,17 @@
         "newlinesBetween": "always",
         "groups": [
           ["/^react$/", "/^next/", "/^@next/"],
-          ["/^@react/", "/^@azul/", "module"],
-          ["/^@data/", "/^@domain/", "/^@infra/", "/^@main/", "/^@i18n/"],
+          ["/^@react/", "module"],
           [
+            "/^@assets/",
             "/^@components/",
             "/^@context/",
             "/^@hooks/",
-            "/^@router/",
-            "/^@utils/",
-            "/^@assets/",
-            "/^@constants/",
+            "/^@pages/",
             "/^@providers/",
             "/^@styles/",
-            "/^@flows/"
+            "/^@types/",
+            "/^@utils/"
           ],
           ["parent", "sibling", "index"]
         ],

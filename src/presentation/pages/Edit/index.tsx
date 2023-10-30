@@ -1,8 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
-
-import { TypeLoading } from 'src/presentation/types';
+import { ChangeEvent, useEffect } from 'react';
 
 import {
   ClientButton,
@@ -10,18 +9,15 @@ import {
   ClientTextInput,
   InstersectionInput,
 } from '@components/index';
+import { useEdit } from '@hooks/network/useEdit';
 
-import { defaultValue } from './edit.data';
-import { IFormEdit, IGetArticle } from './edit.types';
+import { IFormEdit } from './edit.types';
 import { Container, Footer, Wrapper } from './styles';
 
 export function Edit() {
   console.log('Page Edit');
 
-  const [loadingState, setLoadingState] = useState<TypeLoading>('stand_by');
-  const [formState, setFormState] = useState<IFormEdit>(defaultValue);
-
-  const isLoading = loadingState === 'pending';
+  const { getArticleData, isLoading, formState, putArticle, setFormState } = useEdit();
 
   const handleChange = (event: ChangeEvent<InstersectionInput>) => {
     const { name } = event.target;
@@ -34,45 +30,6 @@ export function Edit() {
     return () => {
       setFormState(prev => ({ ...prev, [nameField]: '' }));
     };
-  };
-
-  const getArticleData = async () => {
-    setLoadingState('pending');
-
-    try {
-      const response = await fetch('http://localhost:4000/article');
-      const { title, article }: IGetArticle = await response.json();
-
-      setFormState({ title, article });
-    } catch (error) {
-      console.log('error', error);
-    } finally {
-      setLoadingState('done');
-    }
-  };
-
-  const putArticle = async (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
-    event.preventDefault();
-    setLoadingState('pending');
-
-    try {
-      const title = formState.title;
-      const article = formState.article;
-
-      if (title.length && article.length) {
-        const body = JSON.stringify({ title, article });
-
-        await fetch('http://localhost:4000/article', {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        });
-      }
-    } catch (error) {
-      console.log('error', error);
-    } finally {
-      setLoadingState('done');
-    }
   };
 
   useEffect(() => {
