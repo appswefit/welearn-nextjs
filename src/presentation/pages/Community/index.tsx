@@ -13,6 +13,10 @@ export async function Community() {
   });
   const array: Array<ICommunity> = await response.json();
 
+  if (!array) {
+    throw new Error('Erro ao buscar dados da comunidade...');
+  }
+
   return (
     <div className={styles.container}>
       <Table array={array} />

@@ -12,6 +12,7 @@ export async function Header() {
   const response = await fetch('http://localhost:4000/nameBlog', {
     cache: 'no-store', // para cada user diferente ele faz uma nova requisição
   });
+
   const { name }: IGetNameBlog = await response.json();
 
   return (
@@ -28,7 +29,7 @@ export async function Header() {
         </ClientActiveLink>
       </nav>
       <div className={styles.row}>
-        <h2 className={styles.title}>{name}</h2>
+        <h2 className={styles.title}>{name ?? '--'}</h2>
         <img src={images.logoIcon} alt="logo wefit" />
       </div>
     </header>

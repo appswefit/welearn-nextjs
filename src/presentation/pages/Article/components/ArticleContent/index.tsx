@@ -14,15 +14,17 @@ export async function ArticleContent() {
 
   return (
     <>
-      <h2 className={styles.title}>{title}</h2>
+      <h2 className={styles.title}>{title ?? '--'}</h2>
 
-      {Children.toArray(
-        article.split(/\n+/).map((paragraph, index) => (
-          <p key={index} className={styles.paragraph}>
-            {paragraph}
-          </p>
-        )),
-      )}
+      {article
+        ? Children.toArray(
+            article.split(/\n+/).map((paragraph, index) => (
+              <p key={index} className={styles.paragraph}>
+                {paragraph}
+              </p>
+            )),
+          )
+        : '--'}
     </>
   );
 }
