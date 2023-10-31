@@ -1,9 +1,5 @@
-import styles from './styles.module.scss';
+import { LoadingPage } from '@components/server/LoadingPage';
 
 export default function Loading() {
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.loader} />
-    </div>
-  );
+  return <LoadingPage />;
 }
