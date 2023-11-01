@@ -10,7 +10,7 @@ import { ClientLoadingComments } from '../ClientLoadingComments';
 import { Container, Row, Text, Wrapper } from './styles';
 
 export function ClientComments() {
-  console.log('Comentarios');
+  console.log('Component ClientComments');
 
   const { commentsState, getCommentsData, isLoading, postComment } = useCommentsArticle();
 

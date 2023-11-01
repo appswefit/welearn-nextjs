@@ -9,6 +9,8 @@ interface IGetArticleContent {
 }
 
 export async function ArticleContent() {
+  console.log('Component ArticleContent');
+
   const response = await fetch('http://localhost:4000/article', { cache: 'no-store' });
   const { title, article }: IGetArticleContent = await response.json();
 
