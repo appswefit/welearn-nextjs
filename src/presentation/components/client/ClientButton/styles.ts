@@ -4,16 +4,23 @@ export const Button = styled.button`
   ${({ theme }) =>
     theme &&
     css`
-      width: 120px;
+      min-width: 120px;
       height: 46px;
+      border: none;
       border-radius: 8px;
       background-color: ${theme.colors.YELLOW_500};
       color: ${theme.colors.DARK_300};
+      padding: ${theme.spacing['1x']};
       font-size: 14px;
       font-weight: 700;
 
       &:hover {
-        background-color: #f5c750;
+        background-color: ${theme.colors.YELLOW_400};
+      }
+
+      &:disabled {
+        background-color: ${theme.colors.NEUTRAL_200};
+        color: ${theme.colors.DARK_100};
       }
     `}
 `;

@@ -12,8 +12,10 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier"
   ],
+  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -31,25 +33,29 @@
     "@typescript-eslint/no-empty-function": "off",
     "react/display-name": "off",
     "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
         "groups": [
           ["/^react$/", "/^next/", "/^@next/"],
-          ["/^@react/", "/^@azul/", "module"],
-          ["/^@data/", "/^@domain/", "/^@infra/", "/^@main/", "/^@i18n/"],
+          ["/^@react/", "module"],
           [
+            "/^@assets/",
             "/^@components/",
             "/^@context/",
             "/^@hooks/",
-            "/^@router/",
-            "/^@utils/",
-            "/^@assets/",
-            "/^@constants/",
+            "/^@pages/",
             "/^@providers/",
             "/^@styles/",
-            "/^@flows/"
+            "/^@types/",
+            "/^@utils/"
           ],
           ["parent", "sibling", "index"]
         ],

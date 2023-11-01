@@ -1,26 +1,38 @@
 'use client';
 
-import { InputHTMLAttributes, useRef } from 'react';
+import { InputHTMLAttributes, forwardRef, useRef } from 'react';
 
 import { Container, Label, Input, TextArea, Wrapper, Clean } from './styles';
 
-interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export type InstersectionInput = HTMLInputElement & HTMLTextAreaElement;
+
+interface TextInputProps extends InputHTMLAttributes<InstersectionInput> {
   label: string;
   isTextArea?: boolean;
+  onClearInput?: () => void;
 }
 
-export const ClientTextInput = ({ label, isTextArea }: TextInputProps) => {
+export const ClientTextInput = forwardRef<InstersectionInput, TextInputProps>((props, ref) => {
+  const { label, isTextArea, onClearInput, ...restInput } = props;
+
   const inputRef = useRef<HTMLInputElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
+  const showClearInput = onClearInput || inputRef.current !== null;
+  const showClearTextarea = onClearInput || textareaRef.current !== null;
+
   const clearValueInput = () => {
-    if (inputRef.current) {
+    if (ref && onClearInput) {
+      onClearInput();
+    } else if (inputRef.current) {
       inputRef.current.value = '';
     }
   };
 
   const clearValueTextArea = () => {
-    if (textareaRef.current) {
+    if (ref && onClearInput) {
+      onClearInput();
+    } else if (textareaRef.current) {
       textareaRef.current.value = '';
     }
   };
@@ -30,17 +42,15 @@ export const ClientTextInput = ({ label, isTextArea }: TextInputProps) => {
       <Label>{label}</Label>
       {isTextArea ? (
         <Wrapper>
-          <TextArea ref={textareaRef} />
-          <Clean onClick={clearValueTextArea} isTextarea>
-            X
-          </Clean>
+          <TextArea {...restInput} ref={ref ?? textareaRef} />
+          {showClearTextarea && <Clean onClick={clearValueTextArea}>X</Clean>}
         </Wrapper>
       ) : (
         <Wrapper>
-          <Input ref={inputRef} />
-          <Clean onClick={clearValueInput}>X</Clean>
+          <Input {...restInput} ref={ref ?? inputRef} />
+          {showClearInput && <Clean onClick={clearValueInput}>X</Clean>}
         </Wrapper>
       )}
     </Container>
   );
-};
+});
