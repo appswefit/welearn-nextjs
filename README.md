@@ -82,7 +82,11 @@ npm i eslint-plugin-react-hooks --save-dev
   "rules": {
     "react-hooks/rules-of-hooks": "error", // utilização do plugin react-hooks
     "react-hooks/exhaustive-deps": "warn", // utilização do plugin react-hooks
-    "react/react-in-jsx-scope": "off" // para desabilitar erro desnecessário sobre import React em todos arquivos TSX
+    "react/react-in-jsx-scope": "off", // para desabilitar erro desnecessário sobre import React em todos arquivos TSX
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react/display-name": "off",
+    "linebreak-style": "off"
   }
 }
 ```
@@ -145,7 +149,7 @@ npm install --save-dev eslint-plugin-prettier
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -159,14 +163,25 @@ npm install --save-dev eslint-plugin-prettier
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react/display-name": "off",
+    "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   }
 }
 ```
+
 - criar uma config vscode para que as configurações de outras máquinas do vscode não entrem em
-conflito com as configurações de formatação de código do projeto em si. Na raiz do projeto
-criar a seguinte estrutura `.vscode/settings.json`. Dentro desse novo arquivo criado, inserir as
-seguintes configurações:
+  conflito com as configurações de formatação de código do projeto em si. Na raiz do projeto
+  criar a seguinte estrutura `.vscode/settings.json`. Dentro desse novo arquivo criado, inserir as
+  seguintes configurações:
 
 ```json
 {
@@ -227,7 +242,7 @@ npm i eslint-plugin-import-helpers --save-dev
       "@i18n/*": ["src/i18n/*"],
       "@infra/*": ["src/infra/*"],
       "@main/*": ["src/main/*"]
-    },
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
@@ -269,15 +284,24 @@ npm i eslint-plugin-import-helpers --save-dev
     "react/prop-types": "off",
     "@typescript-eslint/no-empty-function": "off",
     "react/display-name": "off",
+    "linebreak-style": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
-        "groups": [ // ordem dos imports
+        "groups": [
+          // ordem dos imports
           ["/^react$/", "/^next/", "/^@next/"], // 1º: imports do react e next
           ["/^@react/", "/^@azul/", "module"], // 2º: imports @react, lib-azul e outras libs node_modules
           ["/^@data/", "/^@domain/", "/^@infra/", "/^@main/", "/^@i18n/"], // 3º: imports fora de presentation
-          [ // 4º imports dentro de presentation
+          [
+            // 4º imports dentro de presentation
             "/^@components/",
             "/^@context/",
             "/^@hooks/",
@@ -301,30 +325,13 @@ npm i eslint-plugin-import-helpers --save-dev
 }
 ```
 
-* Note que a ordenação no arquivo `.eslintrc.json` deve estar condizente com as props baseURL e paths
-de `tsconfig.json` e que as estruturas e quantidades de diretórios podem variar de projeto para projeto.
-Certifique com seu líder qual será a estrutura de pastas do projeto para ser configurada nessa etapa.
-
-- Criar na raiz do projeto um arquivo com o nome `.editorconfig` com a seguinte configuração:
-
-```
-# EditorConfig is awesome: https://EditorConfig.org
-
-# top-most EditorConfig file
-root = true
-
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = false
-```
+- Note que a ordenação no arquivo `.eslintrc.json` deve estar condizente com as props baseURL e paths
+  de `tsconfig.json` e que as estruturas e quantidades de diretórios podem variar de projeto para projeto.
+  Certifique com seu líder qual será a estrutura de pastas do projeto para ser configurada nessa etapa.
 
 - Por último criar mais dois arquivos na raiz do projeto `.eslintignore` e `.prettierignore`, para que
-as regras de lint não sejam aplicadas em arquivos desnecessários. Nesses dois aquivos inserir a mesma
-config:
+  as regras de lint não sejam aplicadas em arquivos desnecessários. Nesses dois aquivos inserir a mesma
+  config:
 
 ```
 # Ignore artifacts:

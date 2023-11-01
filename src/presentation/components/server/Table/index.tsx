@@ -1,10 +1,15 @@
+import { ICommunity } from 'src/presentation/pages/Community/community.types';
+
+import { ClientSkeleton } from '@components/client/ClientSkeleton';
+
 import styles from './styles.module.scss';
 
 interface TableProps {
-  array: Array<{ id: number; name: string; office: string; locale: string }>;
+  array: Array<ICommunity>;
+  isLoading?: boolean;
 }
 
-export function Table({ array }: TableProps) {
+export function Table({ array, isLoading }: TableProps) {
   return (
     <table className={styles.table}>
       <thead>
@@ -15,15 +20,23 @@ export function Table({ array }: TableProps) {
         </tr>
       </thead>
 
-      <tbody>
-        {array.map(item => (
-          <tr key={item.id}>
-            <td className={styles.bdRightNone}>{item.name}</td>
-            <td className={styles.bdLeftRightNone}>{item.office}</td>
-            <td className={styles.bdLeftNone}>{item.locale}</td>
+      {isLoading ? (
+        <tbody>
+          <tr>
+            <ClientSkeleton colSpan={3} />
           </tr>
-        ))}
-      </tbody>
+        </tbody>
+      ) : (
+        <tbody>
+          {array.map(item => (
+            <tr key={item.id}>
+              <td className={styles.bdRightNone}>{item.name}</td>
+              <td className={styles.bdLeftRightNone}>{item.office}</td>
+              <td className={styles.bdLeftNone}>{item.locale}</td>
+            </tr>
+          ))}
+        </tbody>
+      )}
     </table>
   );
 }

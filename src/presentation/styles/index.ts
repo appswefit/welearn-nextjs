@@ -8,7 +8,10 @@ export const colors = {
   DARK_200: '#1f2729',
   DARK_300: '#121214',
 
+  ERROR: '#d52c2d',
+
   CYAN_500: '#61dafb',
+  YELLOW_400: '#f5c750',
   YELLOW_500: '#f5c400',
 };
 
