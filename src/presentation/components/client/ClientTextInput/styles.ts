@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
       flex-direction: row;
       align-items: center;
       gap: ${theme.spacing['1x']};
-      background-color: ${theme.colors.NEUTRAL_50};
+      background-color: ${theme.colors.WHITE};
       border-radius: 4px;
     `}
 `;
@@ -31,7 +31,7 @@ export const Input = styled.input`
   width: 100%;
   text-indent: 8px;
   border: none;
-  background-color: ${({ theme }) => theme.colors.NEUTRAL_50};
+  background-color: ${({ theme }) => theme.colors.WHITE};
   outline: none;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -41,7 +41,7 @@ export const TextArea = styled.textarea`
   width: 100%;
   border-radius: 4px;
   padding: 8px 8px;
-  background-color: ${({ theme }) => theme.colors.NEUTRAL_50};
+  background-color: ${({ theme }) => theme.colors.WHITE};
   outline: none;
   border: none;
   border-top-left-radius: 4px;

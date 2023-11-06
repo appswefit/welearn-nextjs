@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
 
-  border-bottom: 1px solid var(--white);
+  border-bottom: 1px solid var(--NEUTRAL_50);
 }
 
 .nav {
@@ -17,7 +17,7 @@
     padding: 0 0.5rem;
     height: 5rem;
     line-height: 5rem;
-    color: var(--gray-300);
+    color: var(--NEUTRAL_200);
 
     transition: 0.2s;
 
@@ -26,23 +26,23 @@
     }
 
     &:hover {
-      color: var(--white);
+      color: var(--NEUTRAL_50);
     }
 
     &.active {
-      color: var(--white);
+      color: var(--NEUTRAL_50);
       font-weight: bold;
     }
 
     &.active::after {
-      content: "";
+      content: '';
       height: 3px;
       border-radius: 3px 3px 0 0;
       width: 100%;
       position: absolute;
       bottom: 1px;
       left: 0;
-      background-color: var(--yellow-500);
+      background-color: var(--YELLOW_500);
     }
   }
 }
@@ -54,6 +54,5 @@
 }
 
 .title {
-  color: var(--yellow-500);
+  color: var(--YELLOW_500);
 }
-

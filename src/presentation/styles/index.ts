@@ -1,4 +1,7 @@
-export const colors = {
+export const colorsDark = {
+  WHITE: '#FFF',
+  BLACK: '#121214',
+
   NEUTRAL_50: '#FFF',
   NEUTRAL_100: '#e1e1e6',
   NEUTRAL_200: '#a8a8b3',
@@ -11,6 +14,26 @@ export const colors = {
   ERROR: '#d52c2d',
 
   CYAN_500: '#61dafb',
+  YELLOW_400: '#f5c750',
+  YELLOW_500: '#f5c400',
+};
+
+export const colorsLight = {
+  WHITE: '#FFF',
+  BLACK: '#121214',
+
+  NEUTRAL_50: '#000',
+  NEUTRAL_100: '#1e1e19',
+  NEUTRAL_200: '#57574c',
+
+  DARK_50: '#cdcdc7',
+  DARK_100: '#d6d6d1',
+  DARK_200: '#e0d8d6',
+  DARK_300: '#ededeb',
+
+  ERROR: '#d52c2d',
+
+  CYAN_500: '#1490f2',
   YELLOW_400: '#f5c750',
   YELLOW_500: '#f5c400',
 };
@@ -59,18 +82,45 @@ export const elevation = {
 };
 
 export type Theme = {
-  colors: typeof colors;
+  colors: typeof colorsDark;
   breakpoints: typeof BreakpointsEnum;
   spacing: typeof SpacingEnum;
   elevation: typeof elevation;
 };
 
-export const theme = {
+export const themeDark: Theme = {
   /**
    * Descrição da propriedade.
    * @type {string} - cores utilizado para color, background-color, border-color, etc.
    */
-  colors,
+  colors: colorsDark,
+
+  /**
+   * Descrição da propriedade.
+   * @type {string} - utilizado para responsividade MediaQueries.
+   * Exemplo: @media ${theme.breakpoints.sm} { flex-direction: column }
+   */
+  breakpoints: BreakpointsEnum,
+
+  /**
+   * Descrição da propriedade.
+   * @type {number} - Níveis de elevação, utilizado para z-Index.
+   */
+  elevation,
+
+  /**
+   * Descrição da propriedade.
+   * @type {string} - Níveis de espaçamento para gap, padding, margin, etc.
+   */
+  spacing: SpacingEnum,
+};
+
+export const themeLight: Theme = {
+  /**
+   * Descrição da propriedade.
+   * @type {string} - cores utilizado para color, background-color, border-color, etc.
+   */
+  colors: colorsLight,
 
   /**
    * Descrição da propriedade.

@@ -5,3 +5,7 @@ export enum LoadingEnum {
 }
 
 export type TypeLoading = keyof typeof LoadingEnum;
+
+export interface ThemeNameProps {
+  themeName: 'light' | 'dark';
+}

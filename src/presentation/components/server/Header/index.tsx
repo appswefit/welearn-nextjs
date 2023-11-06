@@ -1,4 +1,5 @@
 import { images } from '@assets/index';
+import { ClientToggleTheme } from '@components/client/ClientToggleTheme';
 
 import { ClientActiveLink } from '../../client/ClientActiveLink';
 import styles from './styles.module.scss';
@@ -35,6 +36,7 @@ export async function Header() {
       <div className={styles.row}>
         <h2 className={styles.title}>{name ?? '--'}</h2>
         <img src={images.logoIcon} alt="logo wefit" />
+        <ClientToggleTheme />
       </div>
     </header>
   );

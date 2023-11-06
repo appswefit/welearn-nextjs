@@ -2,14 +2,12 @@
 
 import { ReactNode } from 'react';
 
-import { ThemeProvider } from 'styled-components';
-
-import { theme } from '@styles/index';
+import { AppThemeProvider } from '../contexts';
 
 interface AppProviderProps {
   children: ReactNode;
 }
 
 export function AppProvider({ children }: AppProviderProps) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <AppThemeProvider>{children}</AppThemeProvider>;
 }
